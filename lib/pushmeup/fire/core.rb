@@ -41,10 +41,10 @@ module FIRE
 
   def self.get_access_token
     headers = {'Content-Type' => 'application/x-www-form-urlencoded'}
-    body = {grant_type:    'client_credentials',
-            scope:         'messaging:push',
-            client_id:     self.client_id,
-            client_secret: self.client_secret
+    body = {"grant_type" =>    'client_credentials',
+            "scope" =>         'messaging:push',
+            "client_id" =>     self.client_id,
+            "client_secret" => self.client_secret
     }
     params = {headers: headers, body: body}
     res = self.post('https://api.amazon.com/auth/O2/token', params)
