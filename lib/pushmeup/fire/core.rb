@@ -46,7 +46,7 @@ module FIRE
             "client_id" =>     self.client_id,
             "client_secret" => self.client_secret
     }
-    params = {headers: headers, body: body}
+    params = {"headers" => headers, "body" => body}
     res = self.post('https://api.amazon.com/auth/O2/token', params)
     return res.parsed_response if res.response.code.to_i == 200
     raise 'Error getting access token'
@@ -73,8 +73,8 @@ module FIRE
     body = {
         :data => n.data
     }
-    body.merge!({consolidationKey: n.consolidationKey}) if n.consolidationKey
-    body.merge!({expiresAfter: n.expiresAfter}) if n.expiresAfter
+    body.merge!({"consolidationKey" => n.consolidationKey}) if n.consolidationKey
+    body.merge!({"expiresAfter" => n.expiresAfter}) if n.expiresAfter
     return self.send_to_server(headers, body.to_json, n.device_token)
   end
 
