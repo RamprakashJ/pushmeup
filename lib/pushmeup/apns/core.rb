@@ -83,6 +83,7 @@ protected
       @ssl.close
       @sock.close
     
+      sleep(5*attempts)
       attempts += 1
       retry
     end
